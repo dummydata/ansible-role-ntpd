@@ -26,7 +26,7 @@
 
 - name: Set ntpd_supports_pool
   set_fact:
-    ntpd_supports_pool: "{{ register_ntpd_version.stdout.split()[1] | version_compare('4.2.7', '>=') }}"
+    ntpd_supports_pool: "{{ register_ntpd_version.stdout.split()[1] is version_compare('4.2.7', '>=') }}"
 
 - name: Download leap seconds file
   get_url:
